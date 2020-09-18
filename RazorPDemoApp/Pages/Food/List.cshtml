@@ -1,0 +1,56 @@
+﻿@page
+@model RazorPDemoApp.Pages.Food.ListModel
+@{
+    ViewData["Tite"] = "List";
+}
+
+<h1>Food List</h1>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var food in Model.Food)
+        {
+        <tr>
+            <td>@food.Title</td>
+            <td>@food.Description</td>
+            <td>@string.Format("{0:C}", food.Price)</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+
+<div class="card-columns">
+    <div class="card" style="width: 18rem;">
+        <img src="/image/burger.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Burger meals</h5>
+            <p class="card-text">Tasty burgers with various menu options, with classic fries or sweet potatoe and fresh salad.</p>
+            <a asp-page="/Orders/Create" class="btn btn-primary">Order</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="/image/mexican.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Mexican meals</h5>
+            <p class="card-text">Taste our authentic mexican burritos or quesadillas with the stuffing of your own taste and choose the menu you like.</p>
+            <a asp-page="/Orders/Create" class="btn btn-primary">Order</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="/image/vegan.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Vegal meals</h5>
+            <p class="card-text">Exciting vegan dishes, roasted veggies with various side dishes, veggie soups and stews.</p>
+            <a asp-page="/Orders/Create" class="btn btn-primary">Order</a>
+        </div>
+    </div>
+</div>
